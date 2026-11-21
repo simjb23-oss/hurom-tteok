@@ -205,9 +205,15 @@ section{padding:110px 0}
 #v3d-ui button{font:inherit;font-size:14px;font-weight:700;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer}
 #v3d-ui button.on{background:#0a8a3a;border-color:#0a8a3a;color:#fff}
 #v3d-say{margin-top:14px;font-size:15px;color:var(--ink);background:#f1faf4;border-radius:14px;padding:14px 18px;line-height:1.6}
+.rv2{display:grid;grid-template-columns:5fr 6fr;gap:40px;align-items:start}
+.h3{font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-top:32px}
+.fix{margin:16px 0 0;padding-left:20px;font-size:15px;line-height:1.65;color:var(--sub)}.fix li{margin-bottom:12px}.fix b{color:var(--ink)}
+.ok{background:#e4f3e3;color:#1f6b2b}
+#review .pl td,#review .pl th{text-align:left}#review .pl td:first-child{white-space:normal;width:150px;font-weight:700}
+@media (max-width:860px){.rv2{grid-template-columns:1fr}}
 </style></head><body>
 <nav><div class="wrap"><b><img src="img/logo.png" alt="HUROM" style="display:inline-block;height:14px;width:auto;vertical-align:-1px"> <span>떡 메이커 기획서</span></b>
-<ul><li><a href="#summary">요약</a></li><li><a href="#problem">문제</a></li><li><a href="#product">제품</a></li><li><a href="#inside">3D</a></li><li><a href="#feasible">어려운 곳</a></li><li><a href="#market">시장</a></li><li><a href="#numbers">숫자</a></li><li><a href="#validate">시제품</a></li></ul></div></nav>
+<ul><li><a href="#summary">요약</a></li><li><a href="#problem">문제</a></li><li><a href="#product">제품</a></li><li><a href="#inside">3D</a></li><li><a href="#feasible">어려운 곳</a></li><li><a href="#review">구조 검토</a></li><li><a href="#market">시장</a></li><li><a href="#numbers">숫자</a></li><li><a href="#validate">시제품</a></li></ul></div></nav>
 
 <header class="hero">
 <img src="img/hero.jpg" alt="휴롬 떡 메이커 — 앞 노즐에서 가래떡이 나오는 모습">
@@ -259,18 +265,18 @@ section{padding:110px 0}
 <h2>찜통 하나, 스크루 하나, 노즐 하나, 버튼 하나.</h2>
 <div class="photo"><img src="img/explode.jpg" alt="분해도 — 뚜껑, 투명 찜통, 스크루, 스테인리스 받침, 몸체, 노즐"></div>
 <div class="steps">
-<div><i>1</i><div><b>찌기 · 20~25분</b><p>투명 찜통 아래 스팀판에서 김이 올라와 쌀가루를 찝니다. 물은 몸체 뒤 물통(300mL)에서 들어갑니다.</p></div></div>
-<div><i>2</i><div><b>치기 · 5~8분</b><p>찜통 바닥 판이 열리면 찐 반죽이 스크루 위로 떨어집니다. 스크루가 천천히 돌며 반죽을 눌러 치댑니다.</p></div></div>
+<div><i>1</i><div><b>찌기 · 20~25분</b><p>몸체 뒤 물통(300mL)의 물을 작은 펌프가 조금씩 순간 히터로 보내 김을 만듭니다. 김은 관을 타고 찜통 아래로 들어가 구멍판 위 쌀가루를 찝니다.</p></div></div>
+<div><i>2</i><div><b>치기 · 5~8분</b><p>구멍판이 열리면 찜통 바닥까지 올라온 스크루 끝이 찐 반죽을 물어 내립니다. 스크루가 분당 20~25회로 천천히 돌며 반죽을 눌러 치댑니다.</p></div></div>
 <div><i>3</i><div><b>뽑기 · 3~5분</b><p>스크루 방향이 바뀌면 반죽이 앞 노즐로 밀려 나옵니다. 노즐 끝에서 찬물을 뿌려 겉을 식히면 떡이 들러붙지 않습니다.</p></div></div>
 </div>
 <table class="spect">
 <tr><th colspan="2">주요 사양 (목표치 · 시험 전)</th></tr>
 <tr><td>크기 · 무게</td><td>약 Ø18 × 높이 42cm · 약 5kg</td></tr>
 <tr><td>용량</td><td>쌀가루 300~450g(쌀 2~3컵) → 떡 약 500~700g</td></tr>
-<tr><td>전원</td><td>220V · 스팀 히터 약 800W · 모터 약 150W</td></tr>
+<tr><td>전원</td><td>220V · 순간 스팀 히터 약 800W · 모터 약 150W(분당 20~25회, 출력 축 35 N·m 이상) · 동시에 돌지 않음</td></tr>
 <tr><td>노즐 3종</td><td>가래떡 Ø2.5cm · 떡볶이 떡 Ø1.5cm · 인절미 판(넓적)</td></tr>
 <tr><td>모드</td><td>가래떡 · 떡볶이 떡 · 인절미/찹쌀떡 · 백설기(찌기만)</td></tr>
-<tr><td>닿는 부품 재질</td><td>스크루 울템(PEI) · 찜통 트라이탄 · 스팀판 스테인리스(엠보) · 노즐 안쪽 식품용 실리콘</td></tr>
+<tr><td>닿는 부품 재질</td><td>스크루 · 스크루 통 울템(PEI) 또는 PPSU · 찜통 붕규산 유리 또는 PPSU · 구멍판 스테인리스(Ø16cm) · 노즐 안쪽 식품용 실리콘</td></tr>
 <tr><td>조작</td><td>버튼 1개 + 불빛 4개(찌기 · 치기 · 뽑기 · 끝) · 앱 없음</td></tr>
 <tr><td>세척</td><td>찜통 · 스크루 · 노즐을 떼어 물로 씻습니다. 목표는 3분입니다.</td></tr>
 </table>
@@ -287,6 +293,7 @@ section{padding:110px 0}
 <section id="scene"><div class="wrap">
 <p class="kicker">05 · 쓰는 장면</p>
 <h2>설 전날 오후, 떡국 떡을 집에서 뽑는 날.</h2>
+<div class="photo" style="margin-top:32px"><img src="img/scene.jpg" alt="설날 가족이 갓 뽑은 가래떡을 나누는 장면"></div>
 <table class="pl">
 <tr><th>시각</th><th style="text-align:left">사람이 하는 일</th><th style="text-align:left">기계가 하는 일</th></tr>
 <tr><td>14:00</td><td class="l">마트에서 산 습식 쌀가루 450g과 물 반 컵을 찜통에 붓고, 가래떡 노즐을 끼운 뒤 버튼을 누릅니다.</td><td class="l">물통의 물로 스팀을 만들고, 찌기 불빛을 켭니다.</td></tr>
@@ -310,6 +317,67 @@ section{padding:110px 0}
 <p class="lead2">열은 문제가 적습니다. 찐 반죽은 약 90°C이고, 울템은 약 200°C까지 버팁니다. 다만 스팀과 모터를 한 몸체에 넣으므로 모터 쪽으로 김이 새지 않는 구조가 필요합니다.</p>
 </div></section>
 
+<section id="review"><div class="wrap">
+<p class="kicker">06-1 · 구조 검토</p>
+<h2>세 번 따졌습니다 — 치수, 힘과 열, 만들기와 쓰기.</h2>
+<p class="lead2">숫자는 모두 가장 나쁜 경우로 셈했습니다. 떡 반죽의 점도처럼 아직 잰 적 없는 값은 범위로 두고 <span class="tag warn">추정</span>을 달았습니다. 아래 단면 컨셉 이미지에서 실제로 만들 수 없는 곳도 같이 짚었습니다.</p>
+
+<div class="rv2">
+<div class="photo" style="margin-top:32px;background:#fff"><img src="img/cutaway.jpg" alt="단면 컨셉 — 찜통, 스크루, 물통, 히터, 모터"></div>
+<div>
+<h3 class="h3">단면 컨셉에서 고칠 곳</h3>
+<ol class="fix">
+<li><b>찜통 가운데 축 → 뺍니다.</b> 뚜껑에서 찜통을 뚫고 내려오는 축은 할 일이 없습니다. 오히려 스팀이 새는 길이 되고, 쌀가루가 축에 엉겨 붙습니다.</li>
+<li><b>찜통 바닥(구멍판)이 곧 여닫는 판이어야 합니다.</b> 찐 반죽은 끈적한 덩어리라, 구멍판 위에서 저절로 아래로 떨어지지 않습니다. 구멍판 자체가 두 쪽으로 열리거나 옆으로 빠져야 반죽이 스크루 위로 내려갑니다.</li>
+<li><b>출구는 통 옆으로 냅니다.</b> 그림처럼 스크루 바로 아래 가운데에서 꺾어 나가면 모터 축이 지나갈 자리가 없습니다. 원액기처럼 축은 가운데로 올리고, 출구는 통 아랫면 옆으로 냅니다.</li>
+<li><b>스팀 관이 스크루 통 옆을 지나 통을 데웁니다.</b> 그림에서 관은 몸체 안쪽 벽을 따라가는데, 스크루 통 쪽에 붙이면 반죽이 내려가는 동안 덜 식습니다(아래 ②).</li>
+<li><b>물통과 히터 사이에 작은 펌프나 밸브가 필요합니다.</b> 물통 전체를 끓이면 늦고 전기를 많이 씁니다. 물을 조금씩 히터로 보내 바로 김으로 만드는 방식(스팀다리미와 같은 방식)으로 합니다.</li>
+</ol>
+</div>
+</div>
+
+<h3 class="h3" style="margin-top:64px">1차 · 치수</h3>
+<table class="pl">
+<tr><th>항목</th><th>계산</th><th style="text-align:left">판단</th></tr>
+<tr><td>찜통에 쌓이는 높이</td><td>젖은 쌀가루 600g ÷ 부피 밀도 0.6 ÷ 판 넓이 154cm² = <b>6.5cm</b></td><td class="l"><span class="tag warn">걸림</span> 떡집 시루는 보통 5cm 안쪽으로 얇게 펴서 고르게 찝니다. 판 지름을 Ø14 → Ø16cm로 키우면 5.0cm가 됩니다.</td></tr>
+<tr><td>스크루 통 부피</td><td>Ø8.8 × 8cm − 스크루 심 = <b>약 400cm³</b> · 찐 반죽 650g ≈ 565cm³</td><td class="l"><span class="tag warn">걸림</span> 반죽이 한 번에 다 들어가지 않습니다. 스크루 윗부분을 찜통 바닥 구멍까지 올려, 원액기 호퍼처럼 위에서 조금씩 물고 내려가게 합니다.</td></tr>
+<tr><td>전체 높이</td><td>몸체 22 + 받침 1.4 + 스크루 통 9 + 판 0.5 + 찜통 10 + 뚜껑 2 = <b>약 45cm</b></td><td class="l"><span class="tag warn">걸림</span> 뚜껑을 열려면 위로 10cm가 더 필요해서 55cm가 됩니다. 상부장 아래(보통 조리대 위 50~60cm)에서는 빠듯합니다. 뚜껑을 옆으로 여는 경첩형으로 하거나 몸체를 4cm 낮춥니다.</td></tr>
+<tr><td>노즐 높이</td><td>바닥에서 12cm</td><td class="l"><span class="tag ok">통과</span> 지름 25cm 접시를 노즐 아래에 놓을 수 있습니다.</td></tr>
+</table>
+
+<h3 class="h3" style="margin-top:48px">2차 · 힘과 열 (최악값)</h3>
+<table class="pl">
+<tr><th>항목</th><th>계산</th><th style="text-align:left">판단</th></tr>
+<tr><td>스크루에 필요한 힘</td><td>반죽 점도 150~600 Pa·s <span class="tag warn">추정</span> · 날개 끝 틈 1.5mm · 분당 60회일 때 <b>9~36 N·m</b></td><td class="l"><span class="tag warn">걸림</span> 원액기 모터(약 150W)를 분당 60회로 돌리면 낼 수 있는 힘은 약 12 N·m입니다. 반죽이 되면 3배가 모자랍니다.</td></tr>
+<tr><td>회전수를 낮추면</td><td>분당 20~25회 · 기어비 2.5~3배 → 낼 수 있는 힘 <b>약 30~36 N·m</b></td><td class="l"><span class="tag ok">통과</span> 같은 모터로 최악값을 겨우 넘깁니다. 회전수를 원액기보다 낮추고 기어를 한 단 더 넣는 것을 기본으로 합니다.</td></tr>
+<tr><td>노즐에 걸리는 힘</td><td>압력 0.3~1.0 MPa <span class="tag warn">추정</span> × 노즐 4.9cm² = <b>150~490 N</b></td><td class="l">노즐 체결부가 이 힘을 받습니다. 끼우는 노즐은 반 바퀴 돌려 잠그는 금속 링으로 고정합니다(그림의 은색 링).</td></tr>
+<tr><td>찜통 재질 온도</td><td>김 100°C가 20~25분 계속 닿음</td><td class="l"><span class="tag warn">걸림</span> 트라이탄은 열변형 온도가 약 100°C 근처라, 김에 매번 닿으면 뿌옇게 되거나 금이 갈 수 있습니다. 찜통은 <b>붕규산 유리나 PPSU</b>로 바꿉니다.</td></tr>
+<tr><td>스크루 통 재질</td><td>반죽 약 90°C + 압력 최대 1 MPa</td><td class="l"><span class="tag warn">걸림</span> 뜨거운 데다 눌리기까지 하니 트라이탄은 오래 못 갑니다. <b>울템(PEI) 또는 PPSU</b>로 합니다. 둘 다 투명한 호박색입니다.</td></tr>
+<tr><td>데우는 시간</td><td>쌀가루·물 600g을 20 → 100°C로, 찜통 열 포함 약 155kJ ÷ (800W × 효율 60%)</td><td class="l"><span class="tag ok">통과</span> 약 5분 만에 김이 고르게 오릅니다. 찌기 20분을 더하면 25분입니다.</td></tr>
+<tr><td>물 쓰는 양</td><td>반죽에 맺히는 물 약 55g + 찌는 동안 빠지는 김 약 80g = <b>약 135g</b></td><td class="l"><span class="tag ok">통과</span> 물통 300mL로 넉넉합니다. 다만 <b>55g이 반죽으로 들어가므로</b> 레시피의 물 양을 그만큼 줄여야 합니다.</td></tr>
+<tr><td>전기</td><td>히터 800W와 모터 150W는 동시에 돌지 않음</td><td class="l"><span class="tag ok">통과</span> 220V에서 최대 약 4A입니다.</td></tr>
+</table>
+
+<h3 class="h3" style="margin-top:48px">3차 · 만들기와 쓰기</h3>
+<table class="pl">
+<tr><th>항목</th><th>문제</th><th style="text-align:left">해결</th></tr>
+<tr><td>여닫는 판 구동</td><td>판을 여는 힘이 따로 필요합니다.</td><td class="l">모터를 거꾸로 한 번 돌리면 캠이 판을 여는 구조로, 부품을 하나 줄입니다. 솔레노이드를 쓰는 안은 예비로 둡니다.</td></tr>
+<tr><td>스팀 새는 곳</td><td>찜통과 스크루 통 사이, 축 실링.</td><td class="l">찜통 테두리에 실리콘 패킹을 둡니다. 축은 원액기처럼 아래에서 올라오고, 축 실링은 반죽 쪽이 아닌 모터 쪽에 둡니다.</td></tr>
+<tr><td>씻을 부품 수</td><td>뚜껑 · 찜통 · 구멍판 · 스크루 · 스크루 통 · 노즐 · 링 = <b>7개</b></td><td class="l"><span class="tag warn">걸림</span> 원액기보다 많습니다. 구멍판을 찜통에 붙이고 노즐과 링을 한 몸으로 하면 5개가 됩니다.</td></tr>
+<tr><td>떡이 나올 때 온도</td><td>노즐을 나오는 떡은 60~70°C <span class="tag warn">추정</span></td><td class="l"><span class="tag warn">걸림</span> 아이가 바로 잡으면 덴 수 있습니다. 「끝」 알림 뒤 2분 동안 식히는 안내를 넣고, 광고 이미지에서도 아이가 갓 나온 떡을 잡는 장면은 피합니다.</td></tr>
+<tr><td>넘어짐</td><td>높이 45cm · 무게 약 5kg · 노즐 쪽이 앞으로 무거움</td><td class="l">바닥 지름을 18cm 이상으로 하고, 고무발을 앞쪽에 하나 더 둡니다.</td></tr>
+</table>
+
+<div class="verdict" style="margin-top:48px"><h3>검토 뒤 바뀐 구조</h3>
+<ul>
+<li><b>스크루:</b> 분당 20~25회, 기어 한 단 추가, 출력 축 힘 35 N·m 이상</li>
+<li><b>찜통:</b> 붕규산 유리 또는 PPSU · 구멍판 Ø16cm · 구멍판이 곧 여닫는 판</li>
+<li><b>스크루 통:</b> 울템 또는 PPSU · 출구는 아랫면 옆 · 스크루 윗부분이 찜통 바닥까지 올라와 반죽을 물어 내림</li>
+<li><b>스팀:</b> 물통 → 소형 펌프 → 순간 히터 → 관(스크루 통 옆) → 찜통 아래 · 반죽에 들어가는 물 약 55g을 레시피에서 뺌</li>
+<li><b>높이:</b> 뚜껑을 옆으로 열어 상부장 아래에서도 쓸 수 있게</li>
+<li><b>비교할 안:</b> 찜통과 스크루 통을 하나로 합쳐 스크루 통 안에서 바로 찌는 「일체형」. 판과 옮기는 단계가 없어지고 10cm 낮아집니다. 대신 좁은 통 안에서 고르게 쪄지는지 확인해야 합니다.</li>
+</ul></div>
+</div></section>
 <section id="market"><div class="wrap">
 <p class="kicker">07 · 시장과 대체재</p>
 <h2>찹쌀떡 기계는 있습니다. 가래떡을 뽑는 가정용 가전은 없습니다.</h2>
