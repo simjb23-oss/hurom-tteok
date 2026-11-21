@@ -196,9 +196,18 @@ footer{padding:56px 0 72px;font-size:13px;color:var(--sub);border-top:1px solid 
 .warn{background:#fdf0d5;color:#8a5a00}
 section{padding:110px 0}
 @media (max-width:860px){.kpi{grid-template-columns:1fr 1fr}.trio,.gate,.spec{grid-template-columns:1fr}nav ul{display:none}.pl{font-size:12px}}
+#v3d{position:relative;height:min(72vh,620px);margin-top:20px;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#f4f1ea;cursor:grab}
+#v3d canvas{display:block}
+#v3d-tags{position:absolute;inset:0;pointer-events:none;z-index:2}
+#v3d-tags span{position:absolute;left:0;top:0;font-size:12px;font-weight:700;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:999px;padding:3px 10px;white-space:nowrap;margin:-12px 0 0 6px}
+#v3d-ui{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px;align-items:center}
+#v3d-ui i{width:1px;height:22px;background:var(--line);margin:0 4px}
+#v3d-ui button{font:inherit;font-size:14px;font-weight:700;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer}
+#v3d-ui button.on{background:#0a8a3a;border-color:#0a8a3a;color:#fff}
+#v3d-say{margin-top:14px;font-size:15px;color:var(--ink);background:#f1faf4;border-radius:14px;padding:14px 18px;line-height:1.6}
 </style></head><body>
 <nav><div class="wrap"><b><img src="img/logo.png" alt="HUROM" style="display:inline-block;height:14px;width:auto;vertical-align:-1px"> <span>떡 메이커 기획서</span></b>
-<ul><li><a href="#summary">요약</a></li><li><a href="#problem">문제</a></li><li><a href="#product">제품</a></li><li><a href="#feasible">안 되는 조건</a></li><li><a href="#market">시장</a></li><li><a href="#numbers">숫자</a></li><li><a href="#validate">검증</a></li><li><a href="#decide">결정</a></li></ul></div></nav>
+<ul><li><a href="#summary">요약</a></li><li><a href="#problem">문제</a></li><li><a href="#product">제품</a></li><li><a href="#inside">3D</a></li><li><a href="#feasible">어려운 곳</a></li><li><a href="#market">시장</a></li><li><a href="#numbers">숫자</a></li><li><a href="#validate">시제품</a></li></ul></div></nav>
 
 <header class="hero">
 <img src="img/hero.jpg" alt="휴롬 떡 메이커 — 앞 노즐에서 가래떡이 나오는 모습">
@@ -212,18 +221,14 @@ section{padding:110px 0}
 
 <section id="summary"><div class="wrap">
 <p class="kicker">01 · 한 장 요약</p>
-<h2>무엇을, 왜, 얼마에 — 그리고 무엇을 결정해 주셔야 하는지</h2>
+<h2>무엇을 만들고, 누가 왜 쓰고, 얼마에 파는지</h2>
 <div class="kpi">
 <div><b>9,291억</b><span>2024년 국내 떡류 판매액. 2018년보다 65% 늘었습니다.<small style="display:block;color:var(--sub)">국가데이터처 통계 인용 보도</small></span></div>
 <div><b>못 찾음</b><span>가래떡을 뽑는 가정용 브랜드 가전(국내 쇼핑몰 · 일본 제조사 기준). 있는 것은 찹쌀떡 반죽기뿐입니다.</span></div>
 <div><b>29.9만</b><span>권장 정가. 일본 떡 기계 직구가(약 27만~29만 원)와 같은 자리입니다.</span></div>
 <div><b>4,800대</b><span>손익분기 물량(추정). 고정비 3.4억 ÷ 대당 공헌이익 7.0만 원.</span></div>
-<div><b>10주</b><span>Go/Stop까지 걸리는 기간. 비용은 약 1,200만 원입니다.</span></div>
+<div><b>약 35분</b><span>쌀가루를 넣고 가래떡이 다 나올 때까지(찌기 25 · 치기 6 · 뽑기 4분, 목표치).</span></div>
 </div>
-<div class="verdict"><h3>결정해 주실 것</h3>
-<ul><li><b>검증 착수 승인</b> — 10주 · 약 1,200만 원. 벤치 시제품 2대, 설문 500명, 떡집 자문 1회입니다.</li>
-<li><b>Go/Stop 기준 확정</b> — 아래 「안 되는 조건」 4개 중 하나라도 걸리면 접습니다.</li>
-<li><b>만드는 곳 정하기</b> — 스크루·모터를 자사 원액기 라인에서 쓸 수 있는지 생산 쪽 확인이 필요합니다.</li></ul></div>
 <p class="lead2">숫자에는 근거를 붙였습니다. 견적이나 시험 전의 숫자에는 <span class="tag warn">추정</span>을 달았습니다.</p>
 </div></section>
 
@@ -271,6 +276,14 @@ section{padding:110px 0}
 </table>
 </div></section>
 
+<section id="inside" style="padding-top:40px;background:#fff"><div class="wrap">
+<p class="kicker">04-1 · 3D로 안 보기</p>
+<h2>물통에서 김이 올라가 찌고, 스크루가 치고, 노즐로 뽑습니다.</h2>
+<p class="lead2">마우스로 돌리고 휠로 당겨 보세요. 「① 찌기」를 누르면 물통 → 스팀 히터 → 관 → 찜통으로 김이 가는 길이 보입니다. 치수는 목표치이고, 시제품에서 바뀝니다.</p>
+<div id="v3d-ui"><button data-a="whole" class="on">전체</button><button data-a="cut">단면</button><button data-a="explode">분해</button><i></i><button data-a="s1">① 찌기</button><button data-a="s2">② 치기</button><button data-a="s3">③ 뽑기</button></div>
+<div id="v3d"><div id="v3d-tags"></div></div>
+<p id="v3d-say"></p>
+</div></section>
 <section id="scene"><div class="wrap">
 <p class="kicker">05 · 쓰는 장면</p>
 <h2>설 전날 오후, 떡국 떡을 집에서 뽑는 날.</h2>
@@ -285,14 +298,14 @@ section{padding:110px 0}
 </div></section>
 
 <section id="feasible" style="background:#fff"><div class="wrap">
-<p class="kicker">06 · 안 되는 조건 먼저</p>
-<h2>이 넷 중 하나라도 걸리면 이 제품은 안 됩니다.</h2>
+<p class="kicker">06 · 어려운 곳</p>
+<h2>구조에서 가장 어려운 곳 네 군데.</h2>
 <table class="risk" style="margin-top:40px">
-<tr><th>안 되는 조건</th><th>왜 걸리나</th><th>확인 방법 · Stop 기준</th></tr>
-<tr><td><b>① 스크루 힘이 모자람</b></td><td>찐 떡 반죽은 과일보다 훨씬 질기고 끈적합니다. 원액기 모터(약 150W · 분당 약 60회)로 노즐까지 밀어낼 수 있는지 모릅니다.</td><td>원액기 스크루 · 모터로 찐 반죽 500g을 Ø2.5cm 노즐로 뽑아 봅니다. <b>모터가 멈추거나 과열되면 Stop</b>(감속비를 바꿔도 안 될 때).</td></tr>
-<tr><td><b>② 반죽이 식어 굳음</b></td><td>찐 반죽은 식으면 금방 굳습니다. 찜통에서 스크루로 내려가는 동안 식으면 뽑히지 않습니다.</td><td>찌기가 끝나고 10분 안에 다 뽑히는지 잽니다. 스크루 통에 보온이 필요한지 정합니다.</td></tr>
-<tr><td><b>③ 세척이 3분을 넘음</b></td><td>떡은 스크루 홈과 노즐 안에 들러붙습니다. 씻기 어려우면 두 번째부터 쓰지 않습니다.</td><td>쓰고 30분 뒤 사람 5명이 씻는 시간을 잽니다. <b>평균 5분이 넘으면 Stop</b>.</td></tr>
-<tr><td><b>④ 사겠다는 사람이 적음</b></td><td>떡을 좋아하는 것과 기계를 사는 것은 다릅니다.</td><td>설문 500명에서 29.9만 원에 「꼭 사겠다·사겠다」가 <b>15% 미만이면 Stop</b>.</td></tr>
+<tr><th>어려운 곳</th><th>왜 어려운가</th><th>설계로 푸는 법 · 확인할 숫자</th></tr>
+<tr><td><b>① 스크루 힘</b></td><td>찐 떡 반죽은 과일보다 훨씬 질기고 끈적합니다. 원액기 모터(약 150W · 분당 약 60회)로 노즐까지 밀어낼 수 있는지가 첫 관문입니다.</td><td>감속비를 원액기보다 높여 더 천천히, 더 세게 밉니다. 스크루 끝 피치를 좁혀 압력을 올립니다. 확인할 숫자: 반죽 500g을 Ø2.5cm로 뽑을 때 모터 전류 · 온도.</td></tr>
+<tr><td><b>② 반죽이 식어 굳음</b></td><td>찐 반죽은 식으면 금방 굳습니다. 찜통에서 스크루로 내려가는 동안 식으면 뽑히지 않습니다.</td><td>찜통을 스크루 바로 위에 두고 바닥판만 열어 떨어뜨립니다. 스팀 관이 스크루 통 옆을 지나 통을 데웁니다. 확인할 숫자: 찌기 끝 → 다 뽑을 때까지 10분 안.</td></tr>
+<tr><td><b>③ 세척</b></td><td>떡은 스크루 홈과 노즐 안에 들러붙습니다. 씻기 어려우면 두 번째부터 쓰지 않습니다.</td><td>노즐 안쪽과 통로를 식품용 실리콘으로 하고, 노즐 끝에서 찬물을 뿌려 겉을 식힙니다. 확인할 숫자: 쓰고 30분 뒤 씻는 시간 3분 안.</td></tr>
+<tr><td><b>④ 쌀가루</b></td><td>방앗간 습식 쌀가루와 마트 건식 쌀가루는 물 양이 다릅니다. 물을 잘못 맞추면 떡이 질거나 갈라집니다.</td><td>모드마다 물 양을 정해 찜통 안쪽에 눈금으로 표시합니다. 확인할 숫자: 건식 · 습식 각각 물 비율과 떡 갈라짐.</td></tr>
 </table>
 <p class="lead2">열은 문제가 적습니다. 찐 반죽은 약 90°C이고, 울템은 약 200°C까지 버팁니다. 다만 스팀과 모터를 한 몸체에 넣으므로 모터 쪽으로 김이 새지 않는 구조가 필요합니다.</p>
 </div></section>
@@ -363,24 +376,16 @@ section{padding:110px 0}
 </div></section>
 
 <section id="validate" style="background:#fff"><div class="wrap">
-<p class="kicker">10 · 검증 계획</p>
-<h2>10주 · 약 1,200만 원으로 네 가지를 숫자로 확인합니다.</h2>
+<p class="kicker">10 · 시제품에서 확인할 것</p>
+<h2>시제품으로 네 가지를 숫자로 확인합니다.</h2>
 <div class="gate">
-<div><small>1~4주</small><b>벤치 시험</b><p>원액기 스크루와 모터로 찐 반죽을 뽑습니다. 멥쌀과 찹쌀, 습식과 건식 쌀가루를 나눠 봅니다. 약 500만 원.</p></div>
+<div><small>1~4주</small><b>벤치 시험</b><p>원액기 스크루와 모터로 찐 반죽을 뽑습니다. 멥쌀과 찹쌀, 습식과 건식 쌀가루를 나눠 봅니다.</p></div>
 <div><small>3~6주</small><b>세척 · 시간</b><p>5명이 쓰고 씻습니다. 찌기부터 다 뽑을 때까지 45분 안에 끝나는지 잽니다.</p></div>
-<div><small>5~8주</small><b>설문 500명</b><p>원액기 고객과 일반 고객을 나눕니다. 가격 24.9 / 29.9 / 34.9만 원별로 묻습니다. 약 400만 원.</p></div>
-<div><small>9~10주</small><b>떡집 자문 · Go/Stop</b><p>떡집 장인이 맛과 식감을 평가합니다. 06의 Stop 기준으로 결론을 냅니다. 약 300만 원.</p></div>
+<div><small>5~8주</small><b>설문 500명</b><p>원액기 고객과 일반 고객을 나눕니다. 가격 24.9 / 29.9 / 34.9만 원별로 묻습니다.</p></div>
+<div><small>9~10주</small><b>맛 · 식감</b><p>떡집 장인이 방앗간 가래떡과 나란히 놓고 맛과 식감을 비교합니다.</p></div>
 </div>
 </div></section>
 
-<section id="decide"><div class="wrap">
-<p class="kicker">11 · 결정 요청</p>
-<h2>검증 10주 · 1,200만 원 착수를 승인해 주십시오.</h2>
-<div class="verdict"><h3>승인되면 바로 하는 일</h3>
-<ul><li>원액기 스크루 · 모터를 받아 1주 안에 첫 벤치 시험을 합니다.</li>
-<li>ODM 3곳에 견적을 요청해 원가 사슬의 <span class="tag warn">추정</span>을 견적 숫자로 바꿉니다.</li>
-<li>중국 쇼핑몰과 해외 특허에서 가정용 떡 압출기를 찾아 빈자리가 맞는지 다시 확인합니다.</li></ul></div>
-</div></section>
 
 <section id="sources" style="padding:80px 0"><div class="wrap">
 <p class="kicker">출처</p>
@@ -393,4 +398,6 @@ section{padding:110px 0}
 </ul>
 </div></section>
 
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="inside3d.js"></script>
 </body></html>
